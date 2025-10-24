@@ -95,4 +95,3 @@ print(str(response))
 
 ### RESULT:
 The multidocument retrieval agent using LlamaIndex efficiently retrieved relevant information from multiple sources.It produced accurate and contextually relevant responses with reduced retrieval time.
-Overall, the system showed improved performance compared to a baseline non-retrieval model.
