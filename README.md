@@ -43,15 +43,15 @@ Retrieve and display the response from the agent.
 ### PROGRAM:
 ```
 urls = [
-    "https://openreview.net/pdf?id=VtmBAGCN7o",
-    "https://openreview.net/pdf?id=6PmJoRfdaK",
-    "https://openreview.net/pdf?id=hSyW5go0v8",
+    "https://openreview.net/forum?id=NN6QHwgRrQ",
+    "https://openreview.net/forum?id=odjMSBSWRtK",
+    "https://openreview.net/forum?id=Iyrtb9EJBp",
 ]
 
 papers = [
-    "metagpt.pdf",
-    "longlora.pdf",
-    "selfrag.pdf",
+    "MAP.pdf",
+    "darkbench.pdf",
+    "MERAG.pdf",
 ]
 
 from utils import get_doc_tools
@@ -79,12 +79,20 @@ agent_worker = FunctionCallingAgentWorker.from_tools(
 
 agent = AgentRunner(agent_worker)
 response = agent.query(
-    "Tell me about the evaluation dataset used in LongLoRA, "
+    "Tell me about the evaluation dataset used in darkbench, "
     "and then tell me about the evaluation results"
 )
+
+response = agent.query("Give me a summary of both RAG and MAP")
+print(str(response))
 ```
 ### OUTPUT:
-![Output](https://github.com/user-attachments/assets/b52ecd48-4bf0-4176-9bcf-c2abec4f3147)
+<img width="1033" height="546" alt="image" src="https://github.com/user-attachments/assets/017035fd-2265-4516-87c6-0b66efb7c0bd" />
+
+-------------------------------------------------------------------------------------------------
+<img width="987" height="651" alt="image" src="https://github.com/user-attachments/assets/8bbe27b1-8ce1-436b-8f06-c0ff39d34c1b" />
+
 
 ### RESULT:
-Prompt Handling: The program constructs a query dynamically and feeds it into the LlamaIndex. Document Indexing: LlamaIndex efficiently indexed multiple documents (research articles) to retrieve the relevant context. Query Response: The system retrieved concise, relevant, and accurate responses by synthesizing the content from the indexed documents.
+The multidocument retrieval agent using LlamaIndex efficiently retrieved relevant information from multiple sources.It produced accurate and contextually relevant responses with reduced retrieval time.
+Overall, the system showed improved performance compared to a baseline non-retrieval model.
